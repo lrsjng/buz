@@ -1,5 +1,12 @@
-const {test, assert} = require('scar');
+const {test, assert, insp} = require('scar');
 const buz = require('../../lib/buz');
+
+const assert_gzip = (zip, len) => {
+    assert.ok(Buffer.isBuffer(zip));
+    assert.equal(zip.length, len);
+    const magic = [zip[0], zip[1]];
+    assert.deepEqual(magic, [31, 139], `expected zip magic number but found ${insp(magic)}`);
+};
 
 test('buz()', () => {
     assert.equal(typeof buz, 'function');
@@ -13,8 +20,7 @@ test('buz() - empty string', () => {
     assert.equal(res.src, content);
     assert.equal(res.es5, '"use strict";');
     assert.equal(res.min, '"use strict";');
-    assert.ok(Buffer.isBuffer(res.zip));
-    assert.equal(res.zip.length, 121);
+    assert_gzip(res.zip, 33);
 });
 
 test('buz() - basic content', () => {
@@ -25,6 +31,5 @@ test('buz() - basic content', () => {
     assert.equal(res.src, content);
     assert.equal(res.es5, '"use strict";\n\nvar fn = function fn() {\n  return null;\n};');
     assert.equal(res.min, '"use strict";var fn=function(){return null};');
-    assert.ok(Buffer.isBuffer(res.zip));
-    assert.equal(res.zip.length, 152);
+    assert_gzip(res.zip, 64);
 });
