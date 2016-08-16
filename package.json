@@ -1,0 +1,35 @@
+{
+  "name": "buz",
+  "version": "0.1.0",
+  "description": "File sizes - babeled, uglified and zipped.",
+  "homepage": "https://larsjung.de/buz/",
+  "bugs": "https://github.com/lrsjng/buz/issues",
+  "author": "Lars Jung <lrsjng@gmail.com> (https://larsjung.de)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lrsjng/buz.git"
+  },
+  "main": "lib/buz",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "node test",
+    "cover": "isparta cover --dir coverage --report text --report html test",
+    "check": "npm run -s lint && npm run -s test",
+    "precommit": "npm run -s check"
+  },
+  "dependencies": {
+    "babel-core": "6.13.2",
+    "babel-preset-es2015": "6.13.2",
+    "jszip": "=2.6.1",
+    "uglify-js": "2.7.1"
+  },
+  "devDependencies": {
+    "eslint": "3.3.1",
+    "isparta": "4.0.0",
+    "scar": "0.17.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
