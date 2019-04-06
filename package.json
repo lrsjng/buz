@@ -1,6 +1,6 @@
 {
   "name": "buz",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "File sizes - babeled, uglified and zipped.",
   "homepage": "https://larsjung.de/buz/",
   "bugs": "https://github.com/lrsjng/buz/issues",
@@ -18,14 +18,14 @@
     "precommit": "eslint . && node test"
   },
   "dependencies": {
-    "babel-core": "6.26.3",
-    "babel-preset-env": "1.7.0",
+    "@babel/core": "7.4.3",
+    "@babel/preset-env": "7.4.3",
     "minimist": "1.2.0",
-    "uglify-js": "3.5.2"
+    "uglify-js": "3.5.3"
   },
   "devDependencies": {
     "eslint": "5.16.0",
-    "scar": "1.4.0"
+    "scar": "1.5.0"
   },
   "engines": {
     "node": ">=8.0.0"
