@@ -22,7 +22,7 @@
   "dependencies": {
     "@babel/core": "7.4.4",
     "@babel/preset-env": "7.4.4",
-    "minimist": "1.2.0",
+    "minimist": "1.2.3",
     "uglify-js": "3.5.9"
   },
   "devDependencies": {
