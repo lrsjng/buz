@@ -19,8 +19,8 @@ test('buz() - empty string', () => {
     assert.equal(typeof res, 'object');
     assert.equal(res.src, content);
     assert.equal(res.es5, '"use strict";');
-    assert.equal(res.min, '"use strict";');
-    assert_gzip(res.zip, 33);
+    assert.equal(res.min, '');
+    assert_gzip(res.zip, 20);
 });
 
 test('buz() - basic content', () => {
@@ -30,8 +30,8 @@ test('buz() - basic content', () => {
     assert.equal(typeof res, 'object');
     assert.equal(res.src, content);
     assert.equal(res.es5, '"use strict";\n\nvar fn = function fn() {\n  return null;\n};');
-    assert.equal(res.min, '"use strict";var fn=function(){return null};');
-    assert_gzip(res.zip, 64);
+    assert.equal(res.min, 'var fn=function(){return null};');
+    assert_gzip(res.zip, 51);
 });
 
 test.cli();
